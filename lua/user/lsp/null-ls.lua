@@ -13,21 +13,16 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-    formatting.clang_format,
-    formatting.eslint_d,
-    formatting.gofmt,
 		formatting.stylua,
-    formatting.shfmt,
-    formatting.terraform_fmt,
+		formatting.shfmt,
 		formatting.prettier.with({
 			filetypes = { "html", "json", "yaml", "markdown" },
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		diagnostics.pylint,
-    diagnostics.codespell,
-    diagnostics.eslint_d,
-    diagnostics.shellcheck,
-    code_actions.gitsigns,
+		diagnostics.codespell,
+		diagnostics.shellcheck,
+		code_actions.gitsigns,
 	},
 })
