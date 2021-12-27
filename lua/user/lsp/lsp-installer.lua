@@ -16,16 +16,6 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
-	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("user.lsp.settings.sumneko_lua")
-	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	 end
-
-	 if server.name == "pyright" then
-	 	local pyright_opts = require("user.lsp.settings.pyright")
-	 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	 end
-
 	 if server.name == "dockerls" then
 	 	local dockerls_opts = require("user.lsp.settings.dockerls")
 	 	opts = vim.tbl_deep_extend("force", dockerls_opts, opts)
@@ -36,14 +26,14 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", gopls_opts, opts)
 	 end
 
+	 if server.name == "pyright" then
+	 	local pyright_opts = require("user.lsp.settings.pyright")
+	 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	 end
+
 	 if server.name == "solidity_ls" then
 	 	local solidity_ls_opts = require("user.lsp.settings.solidity_ls")
 	 	opts = vim.tbl_deep_extend("force", solidity_ls_opts, opts)
-	 end
-
-	 if server.name == "terraformls" then
-	 	local terraformls_opts = require("user.lsp.settings.terraformls")
-	 	opts = vim.tbl_deep_extend("force", terraformls_opts, opts)
 	 end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.

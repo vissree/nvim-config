@@ -1,0 +1,10 @@
+{
+  "terraform.languageServer": {
+    "args": [
+      "serve"
+    ],
+    "external": true,
+    "maxNumberOfProblems": 100,
+    "trace.server": "off"
+  }
+}
