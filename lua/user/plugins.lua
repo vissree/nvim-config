@@ -115,6 +115,9 @@ return packer.startup(function(use)
 		tag = "release", -- To use the latest release
 	})
 
+	-- Trouble toggle
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+
 	-- Legacy
 	use("tpope/vim-surround")
 	use("tpope/vim-commentary")
