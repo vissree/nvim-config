@@ -48,10 +48,6 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("folke/which-key.nvim")
 
-	-- Buffer handling
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
-
 	-- Status line
 	use("nvim-lualine/lualine.nvim")
 
