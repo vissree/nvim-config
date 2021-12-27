@@ -63,7 +63,14 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	-- Markdown preview
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && yarn install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
