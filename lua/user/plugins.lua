@@ -125,6 +125,8 @@ return packer.startup(function(use)
 	-- Legacy
 	use("tpope/vim-surround")
 	use("tpope/vim-commentary")
+  use("LunarVim/vim-solidity") -- Solidity vimscript plugin
+
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
