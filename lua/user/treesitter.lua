@@ -15,6 +15,7 @@ configs.setup({
 		"hcl",
 		"html",
 		"java",
+		"javascript",
 		"json",
 		"lua",
 		"make",
