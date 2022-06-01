@@ -16,7 +16,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.shfmt,
 		formatting.prettier.with({
-			filetypes = { "html", "json", "yaml", "markdown" },
+			filetypes = { "html", "json", "yaml", "markdown", "xml" },
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
