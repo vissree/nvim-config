@@ -71,7 +71,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("dracula/vim")
-	use("real-99/onedarker.nvim")
+	use("LunarVim/onedarker.nvim")
 
 	-- Dashboard
 	use("goolord/alpha-nvim")
