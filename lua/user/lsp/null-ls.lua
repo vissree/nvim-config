@@ -20,7 +20,9 @@ null_ls.setup({
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
-		diagnostics.pylint,
+		diagnostics.pylint.with({
+      command = os.getenv("HOME").."/.pyenv/versions/neovim-default/bin/pylint",
+    }),
 		diagnostics.codespell,
 		diagnostics.shellcheck,
 		code_actions.gitsigns,
