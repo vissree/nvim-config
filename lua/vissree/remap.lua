@@ -1,15 +1,15 @@
--- Use neovim-defaul pyenv virtualenv
 vim.g.python3_host_prog = os.getenv("HOME").."/.pyenv/versions/neovim-default/bin/python"
+vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- :help options
 local options = {
 	backup = false,                         -- creates a backup file
-	-- clipboard = "unnamedplus",           -- allows neovim to access the system clipboard
 	cmdheight = 2,                          -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" },-- mostly just for cmp
 	conceallevel = 0,                       -- so that `` is visible in markdown files
 	fileencoding = "utf-8",                 -- the encoding written to a file
 	hlsearch = true,                        -- highlight all matches on previous search pattern
+  incsearch = true,
 	ignorecase = true,                      -- ignore case in search patterns
 	mouse = "",                             -- do not allow the mouse to be used in neovim ["a", "n", "v", "i" "c"]
 	pumheight = 10,                         -- pop up menu height
@@ -37,6 +37,8 @@ local options = {
 	scrolloff = 8,                          -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "monospace:h17",              -- the font used in graphical neovim applications
+  undodir = os.getenv("HOME") .. "/.vim/undodir",
+  undofile = true,
 }
 
 vim.opt.shortmess:append "c"
@@ -47,4 +49,3 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

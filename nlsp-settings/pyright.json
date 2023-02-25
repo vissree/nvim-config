@@ -1,8 +1,0 @@
-{
-  "pyright.disableOrganizeImports": false,
-  "python.analysis.diagnosticMode": "workspace",
-  "python.analysis.autoSearchPaths": true,
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.typeCheckingMode": "off",
-  "python.analysis.useLibraryCodeForTypes": true
-}
