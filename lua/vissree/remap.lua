@@ -83,3 +83,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- set execute bit on current file
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Renameall refs
+vim.cmd([[ command! RenameAllRef execute 'lua vim.lsp.buf.rename()' ]])
