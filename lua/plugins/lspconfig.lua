@@ -17,23 +17,25 @@ return {
     -- optional `vim.uv` typings for lazydev
     { "Bilal2453/luvit-meta", lazy = true },
     "hrsh7th/cmp-nvim-lsp",
-    "mfussenegger/nvim-jdtls",
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim',    opts = {} },
+    -- nvim-java
+    'nvim-java/nvim-java',
   },
 
   config = function()
+    -- setup nvim-java before lspconfig
+    require('java').setup()
     local lspconfig = require("lspconfig")
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local mason_tool_installer = require("mason-tool-installer")
-    local configs = require("lspconfig.configs")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local default_capabilities = vim.lsp.protocol.make_client_capabilities()
     default_capabilities = vim.tbl_deep_extend(
-            "force",
-            default_capabilities,
-            cmp_nvim_lsp.default_capabilities()
+      "force",
+      default_capabilities,
+      cmp_nvim_lsp.default_capabilities()
     )
 
     local server_configs = {
@@ -54,6 +56,7 @@ return {
       },
     }
 
+    lspconfig.jdtls.setup({})
     mason.setup()
 
     local mason_ensure_installed = vim.tbl_keys(server_configs or {})
@@ -66,6 +69,10 @@ return {
         "pylsp",
         "pyright",
         "jdtls",
+        "spring-boot-tools",
+        "lombok-nightly",
+        "java-test",
+        "java-debug-adapter",
       }
     )
     mason_tool_installer.setup({
@@ -83,7 +90,6 @@ return {
           )
           lspconfig[server_name].setup(server_config)
         end,
-        ["jdtls"] = function() end,
       },
     })
 
