@@ -39,3 +39,36 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Renameall refs
 vim.cmd([[ command! RenameAllRef execute 'lua vim.lsp.buf.rename()' ]])
+
+-- Disable/Enable diagnostics
+-- Command to toggle inline diagnostics
+vim.api.nvim_create_user_command(
+  'DiagnosticsToggleVirtualText',
+  function()
+    local current_value = vim.diagnostic.config().virtual_text
+    if current_value then
+      vim.diagnostic.config({virtual_text = false})
+    else
+      vim.diagnostic.config({virtual_text = true})
+    end
+  end,
+  {}
+)
+
+-- Command to toggle diagnostics
+vim.api.nvim_create_user_command(
+  'DiagnosticsToggle',
+  function()
+    local current_value = vim.diagnostic.is_enabled()
+    if current_value then
+      vim.diagnostic.enable(false)
+    else
+      vim.diagnostic.enable()
+    end
+  end,
+  {}
+)
+-- inline
+vim.keymap.set("n", "<leader>ui", ':lua vim.cmd("DiagnosticsToggleVirtualText")<CR>', { noremap = true, silent = true })
+-- text
+vim.keymap.set('n', '<Leader>ud', ':lua vim.cmd("DiagnosticsToggle")<CR>', { noremap = true, silent = true })
